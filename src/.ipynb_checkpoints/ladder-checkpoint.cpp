@@ -38,9 +38,6 @@ bool edit_distance_within(const std::string& str1, const std::string& str2, int 
 }
 
 bool is_adjacent(const string& word1, const string& word2) {
-    //return edit_distance_within(word1, word2, 1);
-    //TOO SLOWWW
-
     int len1 = word1.length();
     int len2 = word2.length();
     
@@ -66,9 +63,8 @@ bool is_adjacent(const string& word1, const string& word2) {
             if (j - i > 1) return false;
         }
     }
-
     
-    return false;
+    return true;
 }
 
 void load_words(set<string>& word_list, const string& file_name) {
