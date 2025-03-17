@@ -61,12 +61,12 @@ bool is_adjacent(const string& word1, const string& word2) {
         if (word1[i] == word2[j]) {
             ++i;
             ++j;
-        } else if (i == j) {
-            ++j;
         } else {
-            return false;
+            ++j;
+            if (j - i > 1) return false;
         }
     }
+
     
     return false;
 }
