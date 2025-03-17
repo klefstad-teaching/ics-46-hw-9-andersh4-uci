@@ -56,10 +56,18 @@ bool is_adjacent(const string& word1, const string& word2) {
         return distance == 1;
     }
 
-    for (int i = 0; i < len2; ++i) {
-        string temp = word2.substr(0, i) + word2.substr(i+1);
-        if (temp == word1) return true;
+    int i = 0, j = 0;
+    while (i < len1 && j < len2) {
+        if (word1[i] == word2[j]) {
+            ++i;
+            ++j;
+        } else if (i == j) {
+            ++j;
+        } else {
+            return false;
+        }
     }
+    
     return false;
 }
 
