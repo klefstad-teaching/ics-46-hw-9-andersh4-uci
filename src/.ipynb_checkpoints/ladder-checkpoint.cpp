@@ -43,6 +43,7 @@ bool is_adjacent(const string& word1, const string& word2) {
     
     if (len1 > len2) return is_adjacent(word2, word1);
     if (len2-len1 > 1) return false;
+    if (word1 == word2) return true;
 
     int distance = 0;
 
