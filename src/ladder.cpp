@@ -48,15 +48,19 @@ bool is_adjacent(const string& word1, const string& word2) {
     if (len2-len1 > 1) return false;
 
     int distance = 0;
-    
-    for (int i = 0; i < len1; ++i) {
-        if(word1[i] != word2[i]) {
-            ++distance;
-        }
-    }
-    distance += (len2-len1);
 
-    return distance == 1;
+    if (len1 == len2) {
+        for (int i = 0; i < len1; ++i) {
+            if (word1[i] != word2[i]) ++distance;
+        }
+        return distance == 1;
+    }
+
+    for (int i = 0; i < len2; ++i) {
+        string temp = word2.substr(0, i) + word2.substr(i+1);
+        if (temp == word1) return true;
+    }
+    return false;
 }
 
 void load_words(set<string>& word_list, const string& file_name) {
